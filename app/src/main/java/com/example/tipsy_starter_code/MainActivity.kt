@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.EditText
 import android.widget.SeekBar
 import android.widget.TextView
+import com.google.android.material.snackbar.Snackbar
 
 private const val TAG = "MainActivity"
 private const val INITIAL_TIP_PERCENT = 15
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         tipsyBaseAmount = findViewById(R.id.etBase)
         seekTipsy = findViewById(R.id.seekTipsy)
         tipsyPercentage = findViewById(R.id.tipsyPercentage)
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             override fun onProgressChanged(SeekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 Log.i(TAG, "onProgressChanged $progress")
                 tipsyPercentage.text = "$progress%"
-
+                computeTipAndTotal()
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {}
@@ -46,10 +48,19 @@ class MainActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 Log.i(TAG, "afterTextChanged $p0")
-
-
+                computeTipAndTotal()
             }
         })
+    }
+
+    private fun computeTipAndTotal() {
+        // 1. Get the value of the Base Amount and Tip Percent
+
+        // 2. Compute the Tip Amount and Total Amount
+
+        // 3. Update the UI with Tip Amount and Total Amount
+
+
     }
 
 }
